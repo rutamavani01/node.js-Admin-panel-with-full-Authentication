@@ -1,0 +1,16 @@
+<center>
+    <h1>Edit category</h1>
+    <form action="/updateCategory" method="post">
+        <input type="hidden" name="editid" value="<%= single.id %>">
+        <table border="1">
+            <tr> 
+                <td>category name</td>
+                <td><input type="text" value="<%= single.category %>" name="category"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+</center>
