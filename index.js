@@ -12,6 +12,10 @@ app.set('view engine','ejs');
    
 const db = require('./config/db');
 
+app.use(express.static(path.join(__dirname,'/public')))
+
+app.use('/uploads',express.static(path.join(__dirname,'uploads')));
+
 const passport = require('passport');
 const passportLocal = require('./config/passport');
 const session = require('express-session');
@@ -29,13 +33,11 @@ app.use(session({
 
 app.use(cookieParser());
 
-app.use(passport.initialize())
+app.use(passport.initialize()) 
 app.use(passport.session());
 app.use(passport.setUser);
 
-app.use('/',require('./routes/userRoutes'));
-
-app.use(express.static(path.join(__dirname,'/public')))
+app.use('/',require('./routes/userRoutes')); 
 
 app.listen(port,(error)=>{
     if(error){

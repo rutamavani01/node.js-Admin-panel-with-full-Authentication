@@ -58,7 +58,8 @@
                                         <svg class="icon">
                                             <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user">
                                             </use>
-                                        </svg></span>
+                                        </svg>
+                                    </span>
                                   <select class="form-control" name="category">
                                       <option>--select--</option>
                                       <% category.map((v)=> { %>
@@ -66,6 +67,7 @@
                                          value="<%= v.id %>"><%= v.category %><option>
                                     <% }) %>
                                   </select>
+                                  
                                 </div>
                                 <div class="input-group mb-3"><span class="input-group-text">
                                     <svg class="icon">

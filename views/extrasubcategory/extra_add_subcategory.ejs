@@ -60,9 +60,16 @@
                                             </use>
                                         </svg></span>
                                   <select class="form-control" name="category">
-                                    <option>--select--</option>
+                                    <option>--category--</option>
                                     <% category.map((v)=> { %>
                                         <option value="<%= v.id %>"><%= v.category %><option>
+                                    <% }) %>
+                                  </select>
+
+                                  <select class="form-control" name="subcategory">
+                                    <option>--sub category--</option>
+                                    <% subcategory.map((v)=> { %>
+                                        <option value="<%= v.id %>"><%= v.subcategory %><option>
                                     <% }) %>
                                   </select>
                                 </div>

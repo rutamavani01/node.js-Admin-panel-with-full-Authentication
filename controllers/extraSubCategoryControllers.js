@@ -57,9 +57,10 @@ const deleteextrasubCategory = async(req, res) => {
 const editextrasubCategory = async(req,res) => {
     try {
         let category = await categoryModel.find({})
+        let subcategory = await subcategoryModel.find({})
         let single = await extrasubcategoryModel.findById(req.query.editId).populate('categoryId').populate('subcategoryId')
         return res.render('extrasubcategory/extra_editSubCategory',{
-            category  , single 
+            category  , single  , subcategory
         })
     } catch (error) {
         console.log(error);
