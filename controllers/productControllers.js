@@ -133,6 +133,31 @@ const updateProduct = async(req,res) => {
     }
 }
 
+const categoryPending = async (req, res) => {
+    try {
+        let pending = await categoryModel.findByIdAndUpdate(req.query.id,{
+            status : 0
+        });
+        return res.redirect('back');
+
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
+const categoryCancel = async(req, res) => {
+    try {
+        let cancel = await categoryModel.findByIdAndUpdate(req.query.id,{
+            status : 1
+        });
+return res.redirect('back');
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
 module.exports = ({
-    product, product_add, post_product , deleteProduct , editProduct , updateProduct
+    product, product_add, post_product , deleteProduct , editProduct , updateProduct , categoryPending , categoryCancel
 })

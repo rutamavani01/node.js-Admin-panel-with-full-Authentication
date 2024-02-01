@@ -12,7 +12,11 @@ const extraSubcategorySchema = mongoose.Schema({
     extrasubcategory : {
         type : String,
         required : true
-    }       
+    },
+    status : {
+        type :Number,
+        default : 1
+    }     
 })
 
 const extrasubcategoryModel = mongoose.model('extrasubcategoryModel',extraSubcategorySchema);

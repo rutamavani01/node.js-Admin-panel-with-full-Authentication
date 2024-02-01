@@ -97,7 +97,18 @@
 														<td class="cell"><%= v.categoryId.category %></td>
 														<td class="cell"><%= v.subcategoryId.subcategory %></td>
 														<td class="cell"><%= v.extrasubcategory %></td>
-														<td class="cell"><span class="badge bg-warning">Pending</span>
+														
+														<% if(v.categoryId.status===1) { %>
+															<td class="cell"> <a href="/categoryPending?id=<%= v.categoryId.id %>">
+																<span class="badge bg-success">Aproove</span>
+															</a>
+																<% }else{ %>
+															<td class="cell"><a href="/categoryCancel?id=<%= v.categoryId.id %>">
+																<span class="badge bg-danger">Cancelled</span>
+															</a>													
+															</td>
+															<% } %>
+
 														</td>
 														<td class="cell">
 															<a href="/deleteextrasubCategory?deleteId=<%= v.id %>"><button  class="btn "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">

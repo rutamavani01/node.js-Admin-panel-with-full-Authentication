@@ -83,6 +83,31 @@ const updateextrasubCategory = async(req,res) => {
     }
 }
 
+const categoryPending = async (req, res) => {
+    try {
+        let pending = await categoryModel.findByIdAndUpdate(req.query.id,{
+            status : 0
+        });
+        return res.redirect('back');
+
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
+const categoryCancel = async(req, res) => {
+    try {
+        let cancel = await categoryModel.findByIdAndUpdate(req.query.id,{
+            status : 1
+        });
+return res.redirect('back');
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
 module.exports = ({
-    extra_subcategory, extra_add_subcategory, post_extra_add_subcategory , deleteextrasubCategory , editextrasubCategory , updateextrasubCategory
+    extra_subcategory, extra_add_subcategory, post_extra_add_subcategory , deleteextrasubCategory , editextrasubCategory , updateextrasubCategory , categoryPending , categoryCancel
 })

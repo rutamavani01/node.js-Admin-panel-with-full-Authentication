@@ -58,6 +58,9 @@ routes.get('/deleteCategory',categoryControllers.deleteCategory);
 routes.get('/editCategory',categoryControllers.editCategory);
 routes.post('/updateCategory',categoryControllers.updateCategory);
 
+routes.get('/categoryCancel',categoryControllers.categoryCancel)
+routes.get('/categoryPending',categoryControllers.categoryPending)
+
 // sub category
 routes.get('/subcategory',passport.checkUser,subcategorycontrollers.subcategory);
 routes.get('/add_subcategory',passport.checkUser,subcategorycontrollers.add_subcategory)
@@ -65,6 +68,9 @@ routes.post('/post_subcategory',passport.checkUser,subcategorycontrollers.post_s
 routes.get('/deletesubCategory',passport.checkUser,subcategorycontrollers.deletesubCategory);
 routes.get('/editsubCategory',passport.checkUser,subcategorycontrollers.editsubCategory);
 routes.post('/updateSubCategory',passport.checkUser,subcategorycontrollers.updateSubCategory);
+
+routes.get('/categoryCancel',subcategorycontrollers.categoryCancel)
+routes.get('/categoryPending',subcategorycontrollers.categoryPending)
 
 // extra sub category
 routes.get('/extra_subcategory',passport.checkUser,extraSubCategoryControllers.extra_subcategory);
@@ -74,6 +80,9 @@ routes.get('/deleteextrasubCategory',passport.checkUser,extraSubCategoryControll
 routes.get('/editextrasubCategory',passport.checkUser,extraSubCategoryControllers.editextrasubCategory);
 routes.post('/updateextrasubCategory',passport.checkUser,extraSubCategoryControllers.updateextrasubCategory);
 
+routes.get('/categoryCancel',extraSubCategoryControllers.categoryCancel)
+routes.get('/categoryPending',extraSubCategoryControllers.categoryPending)
+
 // product 
 routes.get('/product',passport.checkUser,productControllers.product);
 routes.get('/product_add',imageupload,passport.checkUser,productControllers.product_add);
@@ -81,5 +90,8 @@ routes.post('/post_product',imageupload,passport.checkUser,productControllers.po
 routes.get('/deleteProduct',imageupload,passport.checkUser,productControllers.deleteProduct);
 routes.get('/editProduct',imageupload,passport.checkUser,productControllers.editProduct);
 routes.post('/updateProduct',imageupload,passport.checkUser,productControllers.updateProduct);
+
+routes.get('/categoryCancel',productControllers.categoryCancel)
+routes.get('/categoryPending',productControllers.categoryPending)
 
 module.exports = routes; 

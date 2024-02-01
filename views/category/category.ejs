@@ -1,139 +1,160 @@
-<%- include('../header') %>
+<!DOCTYPE html>
+<html lang="en">
 
-	<!DOCTYPE html>
-	<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-	</head>
+<body>
+	<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+		<div class="container-xl">
+			<div class="row g-3 mb-4 align-items-center justify-content-between">
+				<div class="col-auto">
+					<h1 class="app-page-title mb-0">Categories</h1>
+				</div>
+				<div class="col-auto">
+					<div class="page-utilities">
+						<div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+							<div class="col-auto">
+								<form class="table-search-form row gx-1 align-items-center">
+									<div class="col-auto">
+										<input type="text" id="search-orders" name="searchorders"
+											class="form-control search-orders" placeholder="Search">
+									</div>
+									<div class="col-auto">
+										<button type="submit" class="btn app-btn-secondary">Search</button>
+									</div>
+								</form>
 
-	<body>
-		<div class="wrapper d-flex flex-column min-vh-100 bg-light">
-			<div class="container-xl">
-				<div class="row g-3 mb-4 align-items-center justify-content-between">
-					<div class="col-auto">
-						<h1 class="app-page-title mb-0">Categories</h1>
-					</div>
-					<div class="col-auto">
-						<div class="page-utilities">
-							<div class="row g-2 justify-content-start justify-content-md-end align-items-center">
-								<div class="col-auto">
-									<form class="table-search-form row gx-1 align-items-center">
-										<div class="col-auto">
-											<input type="text" id="search-orders" name="searchorders"
-												class="form-control search-orders" placeholder="Search">
-										</div>
-										<div class="col-auto">
-											<button type="submit" class="btn app-btn-secondary">Search</button>
-										</div>
-									</form>
+							</div>
+							<div class="col-auto">
 
-								</div>
-								<div class="col-auto">
+								<select class="form-select w-auto">
+									<option selected value="option-1">All</option>
+									<option value="option-2">This week</option>
+									<option value="option-3">This month</option>
+									<option value="option-4">Last 3 months</option>
 
-									<select class="form-select w-auto">
-										<option selected value="option-1">All</option>
-										<option value="option-2">This week</option>
-										<option value="option-3">This month</option>
-										<option value="option-4">Last 3 months</option>
-
-									</select>
-								</div>
-								<div class="col-auto">
-									<a class="btn app-btn-secondary" href="#">
-										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download me-1"
-											fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd"
-												d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-											<path fill-rule="evenodd"
-												d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-										</svg>
-										Download CSV
-									</a>
-								</div>
-							</div><!--//row-->
-						</div><!--//table-utilities-->
-					</div>
+								</select>
+							</div>
+							<div class="col-auto">
+								<a class="btn app-btn-secondary" href="#">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download me-1"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd"
+											d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+										<path fill-rule="evenodd"
+											d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+									</svg>
+									Download CSV
+								</a>
+							</div>
+						</div><!--//row-->
+					</div><!--//table-utilities-->
+				</div>
 
 
-					<nav id="orders-table-tab"
-						class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
-						<a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
-							href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">All</a>
-						<a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
-							href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Status</a>
-						<a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
-							href="#orders-pending" role="tab" aria-controls="orders-pending"
-							aria-selected="false">Activity</a>
-					</nav>
+				<nav id="orders-table-tab"
+					class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+					<a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
+						href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">All</a>
+					<a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
+						href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">Status</a>
+					<a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
+						href="#orders-pending" role="tab" aria-controls="orders-pending"
+						aria-selected="false">Activity</a>
+				</nav>
 
 
-					<div class="tab-content" id="orders-table-tab-content">
-						<div class="tab-pane fade show active" id="orders-all" role="tabpanel"
-							aria-labelledby="orders-all-tab">
-							<div class="app-card app-card-orders-table shadow-sm mb-5">
-								<div class="app-card-body">
-									<div class="table-responsive">
-										<table class="table app-table-hover mb-0 text-left">
-											<thead>
+				<div class="tab-content" id="orders-table-tab-content">
+					<div class="tab-pane fade show active" id="orders-all" role="tabpanel"
+						aria-labelledby="orders-all-tab">
+						<div class="app-card app-card-orders-table shadow-sm mb-5">
+							<div class="app-card-body">
+								<div class="table-responsive">
+									<table class="table app-table-hover mb-0 text-left">
+										<thead>
+											<tr>
+												<th class="cell">Id</th>
+												<th class="cell">Category name</th>
+												<th class="cell">Status</th>
+												<th class="cell">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											<% record.map((v,i)=>{i=i+1; %>
 												<tr>
-													<th class="cell">Id</th>
-													<th class="cell">Category name</th>
-													<th class="cell">Status</th>
-													<th class="cell">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<% record.map((v,i)=>{i=i+1; %>
-													<tr>
-														<td class="cell">
-															<%= i %>
-														</td>
-														
-														<td class="cell"><%= v.category %></td>
-														<td class="cell"><span class="badge bg-warning">Pending</span>
-														</td>
-														<td class="cell">
-															<a href="/deleteCategory?deleteId=<%= v.id %>"><button  class="btn "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-																<path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"/>
-															  </svg></button></a>
-															<a  href="/editCategory?editId=<%= v.id %>"><button class="btn "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-																<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-																<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-															  </svg></button></a>
-														</td>
-													</tr>
-													<% }) %>
+													<td class="cell">
+														<%= i %>
+													</td>
 
-														<!-- <tr>
+													<td class="cell">
+														<%= v.category %>
+													</td>
+													<% if(v.status===1) { %>
+														<td class="cell"> <a href="/categoryPending?id=<%= v.id %>">
+															<span class="badge bg-success">Aproove</span>
+														</a>
+															<% }else{ %>
+														<td class="cell"><a href="/categoryCancel?id=<%= v.id %>">
+															<span class="badge bg-danger">Cancelled</span>
+														</a>													
+														</td>
+														<% } %>
+															</td>
+															<td class="cell">
+																<a href="/deleteCategory?deleteId=<%= v.id %>"><button
+																		class="btn "><svg
+																			xmlns="http://www.w3.org/2000/svg"
+																			width="16" height="16" fill="currentColor"
+																			class="bi bi-trash3-fill"
+																			viewBox="0 0 16 16">
+																			<path
+																				d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5" />
+																		</svg></button></a>
+																<a href="/editCategory?editId=<%= v.id %>"><button
+																		class="btn "><svg
+																			xmlns="http://www.w3.org/2000/svg"
+																			width="16" height="16" fill="currentColor"
+																			class="bi bi-pencil-square"
+																			viewBox="0 0 16 16">
+																			<path
+																				d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+																			<path fill-rule="evenodd"
+																				d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+																		</svg></button></a>
+															</td>
+												</tr>
+												<% }) %>
+
+													<!-- <tr>
 												<td class="cell">#15342</td>
 												<td class="cell"><span class="truncate">Justo feugiat neque</span></td>
 												<td class="cell">Reina Brooks</td>
 												<td class="cell"><span class="cell-data">12 Oct</span><span class="note">04:23 PM</span></td>
-												<td class="cell"><span class="badge bg-danger">Cancelled</span></td>
 												<td class="cell">$59.00</td>
 												<td class="cell"><a class="btn-sm app-btn-secondary" href="#">View</a></td>
 											</tr> -->
-											</tbody>
-										</table>
-										<center class="mt-4" >
+										</tbody>
+									</table>
+									<center class="mt-4">
 										<a href="/add_category"><button class="btn btn-info">Add Category</button></a>
-										</center>
-									</div><!--//table-responsive-->
+									</center>
+								</div><!--//table-responsive-->
 
-								</div><!--//app-card-body-->
-							</div><!--//app-card-->
-						
-						</div><!--//tab-pane-->
+							</div><!--//app-card-body-->
+						</div><!--//app-card-->
 
-					</div>
+					</div><!--//tab-pane-->
+
 				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
 
-	</html>
+</html>
 
-	<%- include('../footer') %>
+<%- include('../footer') %>

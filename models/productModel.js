@@ -32,7 +32,11 @@ const productSchema = mongoose.Schema({
     image : {
         type : String,
         require : true
-    }  
+    },
+    status : {
+        type :Number,
+        default : 1
+    }    
 })
 
 const productModel = mongoose.model('productModel',productSchema);

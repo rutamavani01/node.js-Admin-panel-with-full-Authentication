@@ -50,7 +50,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4">
                     <form action="/updateProduct" method="post" enctype="multipart/form-data">
-                        <input type="text" name="editid" value="<%= single.id %>">
+                        <input type="hidden" name="editid" value="<%= single.id %>">
                         <div class="card-group d-block d-md-flex row">
                             <div class="card col-md-6 p-4 mb-0">
                                 <div class="card-body">

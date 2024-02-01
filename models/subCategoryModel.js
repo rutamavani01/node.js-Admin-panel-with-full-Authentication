@@ -8,7 +8,11 @@ const SubcategorySchema = mongoose.Schema({
     subcategory : {
         type : String,
         required : true
-    }       
+    },
+    status: {
+        type : Number,
+        default : 1
+    }      
 })
 
 const subcategoryModel = mongoose.model('subcategoryModel',SubcategorySchema);

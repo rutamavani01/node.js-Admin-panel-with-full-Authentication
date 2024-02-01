@@ -81,6 +81,31 @@ const updateSubCategory = async(req, res) => {
     }  
 }
 
+const categoryPending = async (req, res) => {
+    try {
+        let pending = await categoryModel.findByIdAndUpdate(req.query.id,{
+            status : 0
+        });
+        return res.redirect('back');
+
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
+const categoryCancel = async(req, res) => {
+    try {
+        let cancel = await categoryModel.findByIdAndUpdate(req.query.id,{
+            status : 1
+        });
+return res.redirect('back');
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+
 module.exports = ({
-    subcategory , add_subcategory , post_subcategory , editsubCategory , deletesubCategory , updateSubCategory
+    subcategory , add_subcategory , post_subcategory , editsubCategory , deletesubCategory , updateSubCategory , categoryPending , categoryCancel
 })
