@@ -85,7 +85,7 @@ const updateextrasubCategory = async(req,res) => {
 
 const categoryPending = async (req, res) => {
     try {
-        let pending = await categoryModel.findByIdAndUpdate(req.query.id,{
+        let pending = await extrasubcategoryModel.findByIdAndUpdate(req.query.id,{
             status : 0
         });
         return res.redirect('back');
@@ -98,7 +98,7 @@ const categoryPending = async (req, res) => {
 
 const categoryCancel = async(req, res) => {
     try {
-        let cancel = await categoryModel.findByIdAndUpdate(req.query.id,{
+        let cancel = await extrasubcategoryModel.findByIdAndUpdate(req.query.id,{
             status : 1
         });
 return res.redirect('back');
